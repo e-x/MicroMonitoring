@@ -1,6 +1,6 @@
 # MicroMonitoring
 
-	Unlimited site. Sandbox support. Http and https. All in one file. No install. Absolutely free.
+	Unlimited sites. Sandbox support. Http and https. All in one file. No install. Absolutely free.
 
 [ EN ]
 	- MicroMonitoring
