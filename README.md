@@ -3,7 +3,8 @@
 	Unlimited site. Sandbox support. Http and https. All in one file. No install. Absolutely free.
 
 [ EN ]
-	MicroMonitoring
+	#MicroMonitoring
+	
 	Refresh every 300 sec(5 min). For change - update "CONTENT" in "META HTTP-EQUIV"
 
 	basename – Base name of monitoring systems
@@ -14,7 +15,8 @@
 
 
 [ RU ]
-	МикроМониторинг
+	#МикроМониторинг
+	
 	Обновляется раз в 300 секунд (5мин) для правки использовать "CONTENT" в "META HTTP-EQUIV"
 
 	basename – имя системы 
