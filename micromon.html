@@ -3,32 +3,43 @@
 <head>
 <META HTTP-EQUIV="REFRESH" CONTENT="300">
 <title>MicroMonitoring</title>
-<style> <!-- Use you own --> </style>
+<style> 
+    <!-- Use you own --> 
+</style>
 <script>
  
 function Loaded(){
  var sys = [
- { basename: "MainSite", arr : [ {nam:"EXT",url:"http://main.foo.bar/index.html",sand:0},{nam:"INT",url:"http://10.10.12.19/index.html",sand:0} ] },
- { basename: "BillingSite", arr : [ {nam:"EXT",url:"http://bill.foo.bar/billing/req.php?billhome",sand:1},{nam:"INT",url:"https://10.10.12.13:9099/console",sand:0} ] },
- { basename: "LoadBalancer", arr :[ {nam:"INT",url:"http://10.10.12.1:9889/utils/balancer.jsp",sand:1} ] }
+ { basename: "MainSite", arr : [ {nam:"EXT",url:"http://main.foo.bar/index.html",sand:0},{nam:"INT",url:"http://10.1.1.100/Monitoring/load.jpg",sand:0} ] },
+ { basename: "BillingSite", arr : [ {nam:"EXT",url:"http://bill.foo.bar/billing/req.php?billhome",sand:1},{nam:"INT",url:"http://10.10.12.10/billing/loading.jpg",sand:0} ] },
+ { basename: "LoadBalancer", arr :[ {nam:"EXT",url:"http://bill.foo.bar/mon/loading.jpg",sand:1},{nam:"INT",url:"http://10.10.12.1:9889/utils/balancer.jsp",sand:1} ] }
 ];
- 
-var d=document.getElementById("maintab");
+
+// Panels init size 
+	var swidth = Math.round( window.innerWidth/(sys[0].arr.length+1) );
+	var sheight = Math.round( window.innerHeight/(sys.length+1) );
+        var d=document.getElementById("maintab");
  
 for (var i=0,l=sys.length;i<l;++i)
-{
+  {
 	var tr=document.createElement("tr");
 	var td=document.createElement("td");
+            td.setAttribute("width",swidth);
+            td.setAttribute("align","center");
 	var tt=document.createElement("div");
-	tt.innerHTML = "<b>" + sys[i].basename + "</b>";
-	td.appendChild(tt); tr.appendChild(td);
-	d.appendChild(tr);
+            tt.innerHTML = "<b>" + sys[i].basename + "</b>";
+            td.appendChild(tt); tr.appendChild(td);
+          d.appendChild(tr);
  
 	for (var q=0,ll=sys[i].arr.length;q<ll;++q) {
-	if ( sys[i].arr[q].url == "" ) { continue; }
-	  var td=document.createElement("td"); td.setAttribute("valign","top");
+            if ( sys[i].arr[q].url == "" ) { continue; }
+	  var td=document.createElement("td"); 
+                td.setAttribute("valign","top");
 	  var tt=document.createElement("div");
-	  var ii=document.createElement("iframe"); ii.setAttribute("width","640"); ii.setAttribute("height","200"); ii.setAttribute("src",sys[i].arr[q].url);
+	  var ii=document.createElement("iframe"); 
+                ii.setAttribute("width",swidth); 
+                ii.setAttribute("height",sheight); 
+                ii.setAttribute("src",sys[i].arr[q].url);
 
 		if ( sys[i].arr[q].sand == 1  ) { ii.setAttribute("sandbox",true); }
 	  
@@ -37,15 +48,18 @@ for (var i=0,l=sys.length;i<l;++i)
 	  td.appendChild(tt);
 	  tr.appendChild(td);
 
-}
+        }
 	 
-} 
+  } 
 }
 </script>
 </head>
 <body onload=Loaded()>
-<table border=1 id="maintab"><tbody>
-
-</tbody></table>
+    
+    <table border=1 width=100% id="maintab">
+        <tbody>
+        </tbody>
+    </table>
+    
 </body>
 </html>
