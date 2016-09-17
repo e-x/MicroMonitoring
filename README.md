@@ -27,5 +27,5 @@
 
 	<br>
 <p align="center">
-  <img src="scrshoot.jpg" width="350"/>
+  <img src="scrsht.jpg" width="350"/>
 </p>
